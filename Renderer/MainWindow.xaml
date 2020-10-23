@@ -1,0 +1,31 @@
+﻿<Window x:Class="Renderer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Renderer"
+        xmlns:helix="http://helix-toolkit.org/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid Background="DarkGray">
+    <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>    
+
+        <StackPanel>
+            <TextBox Height="25" Margin="5" Text="{Binding FilePath}"/>
+            <Button Name="btnBrowseFile" Margin="5" Height="25" Click="BtnBrowseFile_Click">Browse File</Button>
+            <Button Name="btnLoadSTL" Margin="5" Height="25" Click="BtnLoadSTL_Click" >Load STL</Button>
+        </StackPanel>
+
+        <ContentControl Grid.Column="1" Margin="5">
+            <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Background="White">
+                <!-- Remember to add light to the scene -->
+                <helix:SunLight/>
+            </helix:HelixViewport3D>
+        </ContentControl>
+
+    </Grid>
+</Window>
