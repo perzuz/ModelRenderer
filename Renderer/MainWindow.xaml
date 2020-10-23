@@ -16,14 +16,14 @@
 
         <StackPanel>
             <TextBox Height="25" Margin="5" Text="{Binding FilePath}"/>
-            <Button Name="btnBrowseFile" Margin="5" Height="25" Click="BtnBrowseFile_Click">Browse File</Button>
-            <Button Name="btnLoadSTL" Margin="5" Height="25" Click="BtnLoadSTL_Click" >Load STL</Button>
+            <Button Name="btnBrowseFile" Margin="5" Height="25" Command="{Binding BrowseFileCommand}">Browse File</Button>
         </StackPanel>
 
         <ContentControl Grid.Column="1" Margin="5">
-            <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Background="White">
+            <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Background="White" RotateGesture="LeftClick">
                 <!-- Remember to add light to the scene -->
-                <helix:SunLight/>
+                <helix:DefaultLights/>
+                <ModelVisual3D Content="{Binding CurrentModel}"/>
             </helix:HelixViewport3D>
         </ContentControl>
 
